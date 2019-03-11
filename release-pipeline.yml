@@ -1,9 +1,8 @@
 ---
 trigger:
-  branches:
-    include: [ master ]
-
-pr: [ master ]
+  tags:
+    include:
+    - *
 
 jobs:
   - job: release
