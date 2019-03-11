@@ -1,11 +1,4 @@
 ---
-resources:
-  containers:
-    - container: stable
-      image: rust
-    - container: nightly
-      image: rustlang/rust:nightly
-
 trigger:
   branches:
     include: [ master ]
@@ -20,7 +13,7 @@ jobs:
     steps:
       - script: |
            echo "whouhou"
-          displayName: 'Say wouhou'
+        displayName: 'Say wouhou'
 
   - job: build
     dependsOn:
@@ -42,5 +35,4 @@ jobs:
         inputs:
           artifactName: release.lol
         displayName: 'Upload artifacts'
-
 
