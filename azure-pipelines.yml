@@ -40,7 +40,7 @@ jobs:
       - task: GitHubRelease@0
         condition:
         inputs:
-          gitHubConnection: meilisearch
+          gitHubConnection: tpayet
           repositoryName: meilisearch/MeiliDB
           target: '$(Build.SourceVersion)'
           action: 'edit'
