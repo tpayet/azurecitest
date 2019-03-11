@@ -24,7 +24,7 @@ jobs:
     container: tpayet/chiquitita:latest
     steps:
       - script: |
-          echo "Release time baby"
+          echo "Release time baby "$(tagName)
         displayName: 'Say release'
       - task: CopyFiles@2
         inputs:
@@ -35,4 +35,15 @@ jobs:
         inputs:
           artifactName: release.lol
         displayName: 'Upload artifacts'
+      - task: GitHubRelease@0
+        condition:
+        inputs:
+          gitHubConnection: tpayet
+          repositoryName: meilisearch/MeiliDB
+          target: '$(Build.SourceVersion)'
+          action: 'edit'
+          tag: $(tagName)
+          assets: $(Build.ArtifactStagingDirectory)/*.lol
+        displayName: 'Release binaries on guthib'
+
 
