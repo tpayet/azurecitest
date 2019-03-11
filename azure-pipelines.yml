@@ -1,10 +1,9 @@
 ---
 trigger:
-  tags:
-    include:
-      - *
   branches:
-    include: [ master ]
+    include: 
+      - master
+      - refs/tags/{tagname}
 
 pr: [ master ]
 
